@@ -8,15 +8,37 @@
 # Seu programa deverá realizar a operação solicitada em cada caso.
 
 
+import random
 from random import randint
-palpites=0
-num=0
-singular='tentativa'
-variavel_computador=randint(0,10)
-print(variavel_computador)
-while num != variavel_computador:
-    num=int(input('acerte o número que eu estou pensando, no intervalo de 0 a 10:'))
-    palpites+=1
-if palpites>1:
-    singular+='s'
-print(f'voce acertou, seu miserável!pensei exatamente no {num}.Contudo, gastou {palpites} {singular} para adivinhar ')
+
+num1 = float(input('digite o primeiro número:'))
+num2 = float(input('digite o segundo número:'))
+opcoes = int(input('ESCOLHA UMA DAS OPÇÕES:'
+                   '\n[1]Somar os dois números '
+                   '\n[2]multiplicar os dois números'
+                   '\n[3]maior entre esses números '
+                   '\n[4]novos números'
+                   '\n[5]sair do programa'
+                   '\nSendo assim, qual é sua escolha?'))
+soma = 0
+print('='*60)
+while not opcoes == 5:
+    if opcoes == 1:
+        soma = num1 + num2
+        print(f'a soma dos dois números da:{soma}')
+    if opcoes == 2:
+        print(f'a multiplicacao dos dois números é:{num1 * num2}')
+    if opcoes == 3:
+        if num1 > num2:
+            print(f'o numero maior é:{num1}')
+        elif num1 == num2:
+            print(f'os dois são iguais!!')
+        else:
+            print(f'o número {num2} é o maior')
+    elif opcoes == 4:
+        num1 = int(input('digite agora o primeiro novo número:'))
+        num2 = int(input('digite agora o segundo novo número:'))
+        print('agora o número 1 equivale à {} e o número 2 equivale à {}'.format(num1,num2))
+    opcoes = int(input('digite novamente um número entre 1 a 5, de acordo com as opções acima:'))
+print('='*60)
+print('FIM do programa!')
